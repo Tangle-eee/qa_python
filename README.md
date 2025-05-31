@@ -1,4 +1,4 @@
-# qa_python
+# qa_python  
 # Покрытие тестами класса `BooksCollector`
 
 ## Описание
@@ -20,3 +20,7 @@
 | 9  | `test_add_book_in_favorites_already_added_not_duplicated`    | Повторное добавление в избранное невозможно.                                  |
 | 10 | `test_delete_book_from_favorites_removed`                    | Книга удаляется из списка избранного.                                         |
 | 11 | `test_get_list_of_favorites_books_returns_all_favorites`     | Получение полного списка книг в избранном.                                    |
+| 12 | `test_get_book_genre_for_book_without_genre_returns_empty_string` | Если жанр не задан, возвращается пустая строка.                            |
+| 13 | `test_get_book_genre_for_nonexistent_book_returns_none`      | Если книга отсутствует, метод возвращает `None`.                              |
+| 14 | `test_get_books_genre_returns_empty_dict_for_new_collector`  | Новый экземпляр содержит пустую коллекцию книг и жанров.                      |
+| 15 | `test_get_books_genre_returns_all_books_with_genres`         | Возвращается корректный словарь с книгами и их жанрами.                       |

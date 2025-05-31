@@ -90,3 +90,30 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Книга 1')
         collector.add_book_in_favorites('Книга 2')
         assert collector.get_list_of_favorites_books() == ['Книга 1', 'Книга 2']
+
+    # Новые тесты для get_book_genre
+    def test_get_book_genre_for_book_without_genre_returns_empty_string(self):
+        collector = BooksCollector()
+        collector.add_new_book('Книга без жанра')
+        assert collector.get_book_genre('Книга без жанра') == ''
+
+    def test_get_book_genre_for_nonexistent_book_returns_none(self):
+        collector = BooksCollector()
+        assert collector.get_book_genre('Несуществующая книга') is None
+
+    # Новые тесты для get_books_genre
+    def test_get_books_genre_returns_empty_dict_for_new_collector(self):
+        collector = BooksCollector()
+        assert collector.get_books_genre() == {}
+
+    def test_get_books_genre_returns_all_books_with_genres(self):
+        collector = BooksCollector()
+        collector.add_new_book('Книга 1')
+        collector.add_new_book('Книга 2')
+        collector.set_book_genre('Книга 1', 'Фантастика')
+        
+        expected = {
+            'Книга 1': 'Фантастика',
+            'Книга 2': ''
+        }
+        assert collector.get_books_genre() == expected
